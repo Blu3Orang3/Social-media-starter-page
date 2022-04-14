@@ -3,14 +3,19 @@ url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&displ
 
 :root {
   /* colors */
-  --color-white: hsl(252, 30%, 100%);
-  --color-light: hsl(252, 30%, 95%);
+  --primary-color-hue: 252;
+  --dark-color-lightness: 17%;
+  --light-color-lightness: 95%;
+  --white-color-lightness: 100%;
+
+  --color-white: hsl(252, 30%, var(--white-color-lightness));
+  --color-light: hsl(252, 30%, var(--light-color-lightness));
   --color-gray: hsl(252, 15%, 65%);
-  --color-primary: hsl(252, 75%, 60%);
+  --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
   --color-secondary: hsl(252, 100%, 90%);
   --color-succsess: hsl(120, 95%, 65%);
   --color-danger: hsl(0, 95%, 65%);
-  --color-dark: hsl(252, 30%, 17%);
+  --color-dark: hsl(252, 30%, var(--dark-color-lightness));
   --color-black: hsl(252, 30%, 10%);
    /* padding */
   --border-radius: 2rem;
@@ -560,17 +565,20 @@ main .container .right {
   left: 0;
   z-index: 100;
   text-align: center;
-  display: grid;
+  display: none;
   place-items: center;
   font-size: 0.9rem;
   display: none;
 }
+
+.customize-theme.open { display: block; }
 
 .customize-theme .card {
   background: var(--color-white);
   padding: 3rem;
   border-radius: var(--card-border-radius);
   width: 50%;
+  box-shadow: 0 0 1rem var(--color-primary);
 }
 
 /* ------Font Sizes-------- */
@@ -630,6 +638,7 @@ main .container .right {
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .customize-theme .choose-color span:nth-child(1) {
@@ -739,6 +748,10 @@ main .container .right {
   .left .btn {
     display: none;
   }
+
+  .customize-theme .card{
+    width: 80vw;
+  }
 }
 
 /* ---------for small tablets and mobiles-------- */
@@ -781,6 +794,10 @@ main .container .right {
 
   main .container .right {
     display: none;
+  }
+
+  .customize-theme {
+    width: 92vw;
   }
 
 }
